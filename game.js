@@ -200,23 +200,13 @@ function update() {
 			 		for(var i = 1; i < paddles.length; i++) {
 			 			p = paddles[i];
 			 			//Broken formula
-			 			oneSide =  canvas.width / 2 ;//for one side 
-			 			 
-
-			 			 if (e.gamma < 0 && e.gamma > -45 ){
-			 			 	console.log(e.gamma);
-							// LEFTSIDE 
-							// p.x  = oneSide + ( (100 * Math.round(e.gamma)) / oneSide );
+			 			oneSide =  canvas.width / 2 ; 
+			 			if (e.gamma < 0 && e.gamma > -45 ){
 							p.x  = 0;
 
-			 			 }else if (e.gamma > 0 && e.gamma < 45 ){
-							p.x  = oneSide + ( (100 * Math.round(e.gamma)) / oneSide );			 			 	
+			 			}else if (e.gamma > 0 && e.gamma < 45 ){
 							p.x  = canvas.width - p.w ;
-			 			 }
-				  
-			 			
-
-			 			 
+			 			}
 			 		}    
 		    }, true);
 		}
