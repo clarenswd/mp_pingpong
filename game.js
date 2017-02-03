@@ -196,22 +196,22 @@ function update() {
 	if('ontouchstart' in document.documentElement){
 		if (window.DeviceOrientationEvent) {
 			window.addEventListener("deviceorientation", function (e) {
-
+					// console.log(e.gamma);
 			 		for(var i = 1; i < paddles.length; i++) {
 			 			p = paddles[i];
 			 			//Broken formula
 			 			oneSide =  canvas.width / 2 ;//for one side 
-			 			// console.log("oneSide:");
-			 			// console.log(oneSide);
-			 			//apply formula
-		 				// p.x =  Math.round(e.gamma) * (oneSide / 90) * 1;
+			 			 
 
-			 			 if (e.gamma < 0){
+			 			 if (e.gamma < 0 && e.gamma > -45 ){
+			 			 	console.log(e.gamma);
 							// LEFTSIDE 
-							p.x  = oneSide + ( (200 * Math.round(e.gamma)) / canvas.width );
+							// p.x  = oneSide + ( (100 * Math.round(e.gamma)) / oneSide );
+							p.x  = 0;
 
-			 			 }else{
-							p.x  = oneSide + ( (200 * Math.round(e.gamma)) / canvas.width );			 			 	
+			 			 }else if (e.gamma > 0 && e.gamma < 45 ){
+							p.x  = oneSide + ( (100 * Math.round(e.gamma)) / oneSide );			 			 	
+							p.x  = canvas.width - p.w ;
 			 			 }
 				  
 			 			
